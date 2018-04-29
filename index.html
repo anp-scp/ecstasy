@@ -1,0 +1,613 @@
+<html>
+    <head>
+        <title>Ecstasy - 2k18</title>
+        <meta charset="utf-8">
+	<link rel="shortcut icon" href="images/citlogo.png">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Ecstasy is the annual festival of Central Institute of Technology, Kokrajhar. It was started in 2009 as CIT Annual Week and later renamed as 'Ecstasy', which means JOY, HAPPINESS, THRILL, DELIGHT. Since then it has become one of the biggest college level festival in Assam. Ecstasy is conducted towards the end of February every year. Held for three days. It comprises of many competition ranging from sports to literacy, cultural events and many more. The greatest attraction being the cultural extravaganza that continues for three dazzling evenings. The cultural evenings of the Ecstasy is an outstanding amalgamation of talents, both local and global. So welcome everyone, to this fantabulous celebration of sportsmanship, cultural prosperity and above all of the celebration of humanity.">
+	<meta name="keywords" content="ecstasy, ecstasy 2k18, Ecstasy 2018, CITK, Ecstasy CITK, cultural fest of CITK, cultural fest of central institute of technology">
+        <script src="jquery/jquery-3.2.1.min.js"></script>
+        <script>
+            function getdata(page) {
+                $.ajax(page, {
+				    success: function(response) {
+						  setTimeout(function(){
+                              $('div.containerMy').html(response);
+                              var heightOfTopTitle = window.innerHeight - $('div.containerMy').offset().top - 26;
+                              heightOfTopTitle = heightOfTopTitle + "px";
+                              $('div.containerMy div.topTitle').css('height',heightOfTopTitle);
+                              $(".loading").fadeOut("slow");
+                          },2000);
+				    },
+				    error: function() {
+                          setTimeout(function(){
+                              $('div.containerMy').html($('div.error').html());
+                              var heightOfTopTitle = window.innerHeight - $('div.containerMy').offset().top - 26;
+                              heightOfTopTitle = heightOfTopTitle + "px";
+                              $('div.containerMy div.topTitle').css('height',heightOfTopTitle);
+                              $('title').text("error 500");
+                              $(".loading").fadeOut("slow");
+                          },2000);
+				    },
+				    timeout: 10000,
+				    beforeSend: function() {
+				        
+				    },
+				    complete: function() {
+						        
+				    }
+                
+                });
+            }
+            function getPage() {
+                var page = "";
+                if(window.location.hash == "")
+                    page = "home";
+                else if(window.location.hash == "#1")
+                    page = "testimonial";
+                else if(window.location.hash == "#2")
+                    page = "events";
+                else if(window.location.hash == "#3")
+                    page = "team";
+                else if(window.location.hash == "#4")
+                    page = "schedule";
+                else if(window.location.hash == "#6")
+                    page = "about";
+                else if(window.location.hash == "#liter")
+                    page = "liter";
+                else if(window.location.hash == "#performingarts")
+                    page = "performingarts";
+                else if(window.location.hash == "#sports")
+                    page = "sports";
+		else if(window.location.hash == "#artncraft")
+		    page = "artncraft";
+                else
+                    page = "error404";
+                if(page != "home") {
+                    $("li.homeLink").css("display","inline");
+                    $(".slider").css("display","none");
+                }
+                else {
+                    $("li.homeLink").css("display","none");
+                    $(".slider").css("display","block");
+                }
+                return page;
+            }
+            window.onload = function() {
+                var page = getPage();
+                if(page == "home")
+                    $(".loading").delay(1000).fadeOut("slow");
+                else {
+                    $("title").text(page);
+                    page = page + ".html";
+                    getdata(page);
+                }
+            }
+        </script>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            @keyframes example {
+                from {background-color:  #34495E;}
+                to {background-color: transparent;}
+            }
+            body { 
+		overflow-x: hidden;
+                margin: 0;
+            }
+            p {
+                font-family: 'Titillium Web', sans-serif;
+            }
+            div#myNav a {
+                cursor: pointer;
+            }
+            #myVideo {
+                position: fixed;
+                z-index: -1;
+                right: 0;
+                bottom: 0;
+                min-width: 100%; 
+                min-height: 100%;
+            }
+            div.top-menu {
+                position: fixed;
+                z-index: 9;
+                width: 100%;
+            }
+            div.containerMy {
+                position: relative;
+                z-index: 7;
+                width: 100%;
+                margin: 0;
+                top: 100px;
+            }
+            div.banner {
+                text-align: center;
+                position: relative;
+                width: 100%;
+                margin: 0;
+            }
+            img.banner {
+                position: relative;
+                width: 800px;
+            }
+            img.logo {
+                width: 115px;
+                position: relative;
+                display: block;
+                margin: 10px 0 0 10px;
+            }
+            img.menu {
+                position: fixed;
+                display: none;
+                top: 0;
+                right: 0;
+                margin: 40px 20px 0 0;
+                width: 50px;
+            }
+            div.top-right-menu {
+                font-family: 'Lato', sans-serif;
+                font-weight: bold;
+                position: fixed;
+                top: 0;
+                right: 0;
+                margin: 25px 20px 0 0;
+                color: #ffffff;
+                font-size: 17px;
+                -webkit-text-stroke-width: 0.5px;
+                -webkit-text-stroke-color: #ffc800;
+            }
+            div.top-right-menu ul {
+                list-style-type: none;
+            
+            }
+            div.top-right-menu a:link, div.top-right-menu a:visited,div.top-right-menu a:hover,div.top-right-menu a:active{
+                text-decoration: none;
+                color: #ffffff;
+                -webkit-text-stroke-width: 0.5px;
+                -webkit-text-stroke-color: #ffc800;
+            }
+            div.top-right-menu li {
+                display: inline;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+            div.top-right-menu li:hover {
+                border-bottom: 5px solid white;
+            }
+            img.play {
+                float: left;
+                margin: 0 0 20px 20px;
+                width: 50px;
+            }
+            img.pause {
+                float: right;
+                margin: 0 20px 20px 0;
+                width: 50px;
+            }
+            img.play, img.pause, img.menu, img.logo {
+                cursor: pointer;
+            }
+            div.intro {
+                text-align: center;
+                position: relative;
+            }
+            div.intro h1{
+                font-family: 'Rammetto One', cursive;
+                color: #353c49;
+                font-size: 60px;
+                margin: 0;
+                -webkit-text-stroke-width: 3px;
+                -webkit-text-stroke-color: #ffc800;
+            }
+            div.year {
+                text-align: center;
+                position: relative;
+                top: -174px
+            }
+            div.year h3 {
+                font-family: 'Rammetto One', cursive;
+                color: #353c49;
+                font-size: 40px;
+                margin: 0;
+                -webkit-text-stroke-width: 3px;
+                -webkit-text-stroke-color: #ffc800;
+            }
+            div.desc {
+                text-align: center;
+                position: relative;
+                top: -165px;
+            }
+            div.desc h4 {
+                font-family: 'Rammetto One', cursive;
+                color: #353c49;
+                font-size: 26px;
+                margin: 0;
+                -webkit-text-stroke-width: 3px;
+                -webkit-text-stroke-color: #ffc800;
+            }
+            div.lower-menu {
+                position: fixed;
+                z-index: 8;
+                bottom: 10px;
+                width: 100%;
+            }
+            .slider {
+                -webkit-appearance: none;
+                left: -40px;
+                display: block;
+                position: relative;
+                width: 50%;
+                margin: auto;
+                height: 5px;
+                background: #ffc800;
+                outline: none;
+                opacity: 0.7;
+                -webkit-transition: .2s;
+                transition: opacity .2s;
+            }
+            .slider:hover {
+                opacity: 1;
+            }
+
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 25px;
+                height: 25px;
+                background: #353c49;
+                cursor: pointer;
+            }
+
+            .slider::-moz-range-thumb {
+                width: 25px;
+                height: 25px;
+                background: #353c49;
+                cursor: pointer;
+            }
+            div.topTitle {
+                padding-left: 73px;
+                padding-top: 26px;
+            }
+            div.topTitle h1 {
+                margin: auto;
+                color: #ffffff;
+                font-size: 178px;
+            }
+            div.topTitle h5 {
+                display: inline-block;
+                font-size: 29px;
+                position: relative;
+                top: -48px;
+                left: 192px;
+            }
+            div.aboutPara {
+                padding: 128px;
+            }
+            p.para {
+                font-size: 21px;
+            }
+            h3.testih3 {
+                font-family: 'Cinzel', serif;
+                font-weight: 700;
+            }
+            /* The Overlay (background) */
+            .overlay {
+                /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+                height: 100%;
+                width: 0;
+                position: fixed; /* Stay in place */
+                z-index: 10; /* Sit on top */
+                left: 0;
+                top: 0;
+                background-color: rgb(0,0,0); /* Black fallback color */
+                background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+                overflow-x: hidden; /* Disable horizontal scroll */
+                transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+            }
+
+            /* Position the content inside the overlay */
+            .overlay-content {
+                position: relative;
+                top: 25%; /* 25% from the top */
+                width: 100%; /* 100% width */
+                text-align: center; /* Centered text/links */
+                margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+            }
+
+            /* The navigation links inside the overlay */
+            .overlay a{
+                padding: 8px;
+                text-decoration: none;
+                font-size: 36px;
+                color: #818181;
+                display: block; /* Display block instead of inline */
+                transition: 0.3s; /* Transition effects on hover (color) */
+            }
+
+            /* When you mouse over the navigation links, change their color */
+            .overlay a:hover, .overlay a:focus {
+                color: #f1f1f1;
+            }
+
+            /* Position the close button (top right corner) */
+            .overlay .closebtn {
+                position: absolute;
+                top: 20px;
+                right: 45px;
+                font-size: 60px;
+            }
+
+            /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+            @media screen and (max-height: 450px) {
+                .overlay a {font-size: 20px}
+                .overlay .closebtn {
+                    font-size: 40px;
+                    top: 15px;
+                    right: 35px;
+                }
+            }
+            @media only screen and (max-width: 768px) {
+                img.banner {
+                    width: 388px;
+                }
+                div.intro h1 {
+                    font-size: 20px;
+                }
+                img.logo {
+                    position: fixed;
+                    display: block;
+                    top: 15px;
+                    width: 70px;
+                }
+                div.year h3 {
+                    font-size: 26px;
+                }
+                div.year {
+                    top: -114px;
+                }
+                div.desc {
+                    top: -124px;
+                }
+                div.desc h4 {
+                    font-size: 13px;
+                    -webkit-text-stroke-width: 1px;
+                }
+                img.play, img.pause {
+                    width: 33px;
+                }
+                .slider {
+                    left: -36px;
+                }
+                div.aboutPara {
+                padding: 37px;
+                }
+                p.para {
+                    font-size: 15px;
+                }
+            }
+            @media only screen and (max-width: 600px) {
+                div.topTitle {
+                    padding-left: 0px;
+                    padding-top: 0px;
+                }
+                div.topTitle h1 {
+                    font-size: 88px;
+                }
+                div.topTitle h1.longText {
+                    font-size: 54px;
+                }
+                div.topTitle h5 {
+                    display: inline-block;
+                    font-size: 15px;
+                    position: relative;
+                    top: -24px;
+                    left: 83px;
+                }
+                div.containerMy {
+                    top: 85px;
+                }
+                img.banner {
+                    width: 350px;
+                    top: 16%;
+                }
+                img.logo {
+                    position: fixed;
+                    display: block;
+                    top: 15px;
+                    width: 55px;
+                }
+                img.menu {
+                    display: block;
+                }
+                img.menu,img.play,img.pause {
+                    width: 35px;
+                }
+                div.intro {
+                    top: 11%;
+                }
+                 div.intro h1 {
+                    font-size: 20px;
+                    -webkit-text-stroke-width: 1px;
+                }
+                div.year {
+                    top: -84px;
+                }
+                div.year h3 {
+                    font-size: 20px;
+                    -webkit-text-stroke-width: 1px;
+                }
+                div.desc {
+                    top: -22px;
+                }
+                div.desc h4 {
+                    font-size: 16px;
+                    -webkit-text-stroke-width: 1px;
+                }
+                div.top-right-menu {
+                    display: none;
+                }
+                
+            }
+            
+        </style>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    </head>
+    <body>
+          <div class="loading">
+            <div class="loading-text">
+                <span class="loading-text-words">L</span>
+                <span class="loading-text-words">O</span>
+                <span class="loading-text-words">A</span>
+                <span class="loading-text-words">D</span>
+                <span class="loading-text-words">I</span>
+                <span class="loading-text-words">N</span>
+                <span class="loading-text-words">G</span>
+            </div>
+        </div>
+        <!-- The overlay -->
+            <div id="myNav" class="overlay">
+
+              <!-- Button to close the overlay navigation -->
+              <a class="closebtn">&times;</a>
+              <!-- Overlay content -->
+              <div class="overlay-content">
+                <a href="">home</a>  
+                <a href="#1">testimonials</a>
+                <a href="#2">events</a>
+                <a href="#3">team</a>
+                <a href="#4">schedule</a>
+                <a href="registration/" target="_blank">register</a>
+                <a href="#6">about</a>      
+              </div>
+
+            </div>
+
+        <video autoplay loop id="myVideo">
+          <source src="videos/untitled.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="top-menu">
+            <img class="logo" src="images/bitmap5.png">
+            <img class="menu" src="images/menu.png">
+            <div class="top-right-menu">
+                <ul>
+                    <li class="menu-item homeLink" data-target=""><a href="">home</a></li>
+                    <li class="menu-item" data-target="testimonial"><a href="#1">testimonials</a></li>
+                    <li class="menu-item" data-target="events"><a href="#2">events</a></li>
+                    <li class="menu-item" data-target="team"><a href="#3">team</a></li>
+                    <li class="menu-item" data-target="schedule"><a href="#4">schedule</a></li>
+                    <li class="menu-item" data-target="register"><a href="registration/" target="_blank">register</a></li>
+                    <li class="menu-item" data-target="about"><a href="#6">about</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="containerMy">
+            <div class="banner">
+                <div class="intro">
+                    <h1>- The cultural fest of CITK -</h1>
+                </div>
+                <img class="banner" src="images/ecstasy.png" alt="banner">
+                <div class="year">
+                    <h3>2018</h3>
+                </div>
+                <!--<div class="desc">
+                    <h4>the updates are coming soon...</h4>
+                </div> -->
+            </div>
+        </div>
+        <div class="lower-menu">
+            <img class="play" src="images/play.png">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            <img class="pause" src="images/pause.png">
+        </div>
+        <div class="error" style="display:none;">
+            <section class="wrapper">
+					<div class="inner">
+						<div class="topTitle">
+                            <h1>Error 500</h1>
+                            <h5>Problem fetching the content. Check your connection</h5>
+                        </div>
+					</div>
+				</section>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function() {
+            var vid = document.getElementById("myVideo");
+            var slider = document.getElementById("myRange");
+            vid.volume = slider.value / 100;
+            slider.oninput = function() {
+                vid.volume = slider.value / 100;
+            }
+            $("img.play").click(function() {
+                if(vid.paused)
+                    vid.play();
+            });
+            $("img.pause").click(function() {
+                if(vid.played)
+                    vid.pause();
+            });
+            var screenWidth = $(document).width();
+            var screenHeight = $(document).height();
+            
+            if(window.innerWidth > 768) {
+                $(document).mousemove(function(event) {
+                var imgx = (event.pageX / screenWidth) * 10;
+                var hx = (imgx/5)*12;
+                var imgy = (event.pageY / screenHeight) * 10;
+                var hy = (imgy/5)*12;
+                hx += "px";
+                hy += "px";
+                imgx = imgx + "px";
+                imgy = imgy + "px";
+                $("img.logo,img.banner,img.play,img.pause,.top-right-menu").css("transform","translate(" + imgx + "," + imgy + ")");
+                $("div.banner h1,div.banner h3,div.banner h4").css("transform","translate(" + hx + "," + hy + ")");
+            });
+            }
+            $("img.menu").click(function() {
+                $("#myNav").css("width","100%");
+            });
+            $(".closebtn").click(function() {
+                $("#myNav").css("width","0");
+            });
+            /*$("li.menu-item").click(function(event) {
+                var selectedElement = $(event.target);
+                console.log($(selectedElement).text());
+                var page = $(selectedElement).text() + ".html";
+                $(".loading").fadeIn(100);
+                getdata(page);
+                
+            });*/
+            window.onhashchange = function() {
+                var page = getPage();
+                if(page != "") {
+                    $("title").text(page + " - Ecstasy 2018");
+                    page = page + ".html";
+                    $(".loading").fadeIn(100,function() {
+                        $("#myNav").css("width","0");
+                    });
+                    $("div.containerMy").html("");
+                    getdata(page);
+                }
+            }
+	    var lastScrollTop = 0;
+            $(window).scroll(function(event){
+               var st = $(this).scrollTop();
+               if (st > lastScrollTop){
+                   $("div.top-menu, div.lower-menu").fadeOut("slow");
+               } else {
+                   $("div.top-menu, div.lower-menu").fadeIn("slow");
+               }
+               lastScrollTop = st;
+            });
+        });
+    </script>
+</html>
